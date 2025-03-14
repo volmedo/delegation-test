@@ -1,12 +1,11 @@
 name: Publish
 on:
-  pull_request:
   workflow_dispatch:
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: filecoin-station/publish-zinnia-module-action@2e0211ca6021228bca6c33b0aa55a73260518f68
+      - uses: filecoin-station/publish-zinnia-module-action@main
         id: publish
         with:
           source: source.tar.gz
