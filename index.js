@@ -10,14 +10,24 @@ const main = async () => {
   const source = core.getInput('source', { required: true })
   assert(source.endsWith('.tar.gz'), 'source must point to a .tar.gz file')
 
+  console.log('I have a valid source')
+
   const w3upPrivateKey = core.getInput('w3up-private-key', { required: true })
   const w3upProof = core.getInput('w3up-proof', { required: true })
   const w3namePrivateKey = core.getInput('w3name-private-key', { required: true })
   const w3nameRevision = core.getInput('w3name-revision', { required: true })
 
+  console.log('I have valid inputs')
+
   const principal = ed25519.Signer.parse(w3upPrivateKey)
   const web3Storage = await Client.create({ principal })
+
+  console.log('principal created')
+
   const proof = await Proof.parse(w3upProof)
+
+  console.log('proof parsed')
+
   const space = await web3Storage.addSpace(proof)
   await web3Storage.setCurrentSpace(space.did())
 
