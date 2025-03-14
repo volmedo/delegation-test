@@ -1,0 +1,15 @@
+name: Publish
+on:
+  pull_request:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: filecoin-station/publish-zinnia-module-action@2e0211ca6021228bca6c33b0aa55a73260518f68
+        id: publish
+        with:
+          source: source.tar.gz
+          w3up-private-key: ${{ secrets.W3UP_PRIVATE_KEY }}
+          w3up-proof: ${{ secrets.W3UP_PROOF }}
+          w3name-private-key: ${{ secrets.W3NAME_PRIVATE_KEY }}
+          w3name-revision: ${{ secrets.W3NAME_REVISION }}
