@@ -1,0 +1,36 @@
+{
+  "name": "publish-zinnia-module-action-test",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "license": "(Apache-2.0 AND MIT)",
+  "description": "Publish a Zinnia module to the registry",
+  "repository": "filecoin-station/publish-zinnia-module-action-test",
+  "scripts": {
+    "test": "standard",
+    "build": "ncc build index.js",
+    "version": "npm run build && git add dist",
+    "release": "np && git tag -f v0 && git push --tags -f"
+  },
+  "np": {
+    "publish": false
+  },
+  "standard": {
+    "ignore": [
+      "dist"
+    ]
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@ucanto/principal": "^9.0.2",
+    "@web3-storage/access": "^20.2.0",
+    "@web3-storage/w3up-client": "^17.2.0",
+    "files-from-path": "^1.1.1",
+    "w3name": "^1.0.9"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3",
+    "np": "^10.2.0",
+    "standard": "^17.1.2"
+  }
+}

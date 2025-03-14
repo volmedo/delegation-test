@@ -1,0 +1,20 @@
+name: Publish Zinnia Module Action
+author: filecoin-station
+description: "Publish a Zinnia module to the registry"
+branding:
+  icon: "folder-plus"
+  color: purple
+inputs:
+  source:
+    description: "Path to the .tar.gz module source file"
+  w3up-private-key:
+    description: "Private key for web3.storage"
+  w3up-proof:
+    description: "Proof for web3.storage"
+  w3name-private-key:
+    description: "Private key for w3name (hex encoded)"
+  w3name-revision:
+    description: "Revision for w3name (hex encoded)"
+runs:
+  using: "node20"
+  main: "dist/index.js"
