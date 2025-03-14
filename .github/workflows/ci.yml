@@ -3,12 +3,13 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  publish:
+  action-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: npm ci
       - run: npm run build
+      - run: npm test
       - uses: ./
         id: test-action
         with:
